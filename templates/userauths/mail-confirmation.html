@@ -1,0 +1,11 @@
+{% extends 'partials/base.html'  %}
+{% load static %}
+{% block content %}
+
+<main class='main'> 
+    <p>A confirmation mail sent to your {{mail}}.Kindly, activate your account. </p>
+    <p> Go to <a href="{% url 'core:index' %}">homepage </a></p>
+</main>
+
+
+{%endblock content%}

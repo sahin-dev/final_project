@@ -1,0 +1,39 @@
+{% extends 'partials/base.html'  %}
+{% load static %}
+{% block content %}
+
+<table class="table table-striped invoice-table mt-25">
+    <thead class="bg-active">
+        <tr>
+            <th>Item</th>
+            <th class="text-center">Unit Price</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-right">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in  orderItems %}
+        <tr>
+            <td>
+                <div class="item-desc-1">
+                    <span>{{item.item}}</span>
+
+                </div>
+            </td>
+            <td class="text-center">{{item.price}}</td>
+            <td class="text-center">{{item.qty}}</td>
+            <td class="text-right"> {{item.total}} </td>
+        </tr>
+      {% endfor %}
+        <tr>
+            <td colspan="3" class="text-end f-w-600">SubTotal</td>
+            <td class="text-right"> {{order.price}} </td>
+        </tr>
+       
+        <tr>
+            <td colspan="3" class="text-end f-w-600">Grand Total</td>
+            <td class="text-right f-w-600">{{order.price}}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock%}
